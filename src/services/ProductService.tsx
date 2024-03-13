@@ -5,7 +5,7 @@ export function getAllProductAPI(){
         mode:"cors"
     });
 }
-export function postSomeProduct(){
+export async function postSomeProduct(productData: { productName: string; price: number; sellerName: string }){
     return fetch(apiBaseURL+"products",{
         method:"POST",
         mode:"cors",

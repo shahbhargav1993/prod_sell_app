@@ -1,0 +1,86 @@
+/* App.css - Global styles for your entire application*/
+/* This styles the header section of your app, including the welcome message*/
+.App-header {
+    text-align: center;
+    margin-bottom: 20px;
+    }
+    /* This styles your navigation links */
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+   
+
+    .nav-links a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .nav-links a:hover {
+    text-decoration: underline;
+    }
+    /* This styles form containers*/
+    .form-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd; /*Optional: adds a border around the form*/
+    width: fit-content;
+    display: flex;
+    flex-direction: column; /*Stacks form elements vertically*/
+    }
+    /* This styles form labels*/
+    .form-label {
+    display: block; /*Makes the label display on a new line*/
+    margin-top: 10px;
+    color: black;
+    }
+    /* This styles form inputs*/
+    .form-input {
+    margin-top: 5px;
+    padding: 8px;
+    width: calc(100% - 16px); /*Adjusts width to account for padding*/
+    }
+
+    /* This styles the submit button*/
+    .form-submit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    }
+
+    .form-submit {
+      background-color: #0056b3;
+    }
+
+    .centered-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: none;
+    }
+
+    .centered-links a {
+        text-decoration: none;
+    }
+
+    .success-message {
+        color: green;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .error-message{
+        color:red;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+

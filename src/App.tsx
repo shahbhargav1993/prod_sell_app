@@ -1,25 +1,27 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-//import { Welcome } from './components/Welcome';
 import { WelcomePage } from './pages/WelcomePage';
-import { SellerPage } from './components/SellerPage';
-import { ProductPage } from './components/ProductPage';
+//import { NavigationFunction } from "./components/Navbar";
 import { PageNotFoundPage } from './components/PageNotfoundPage';
-import { NavigationFunction } from "./components/Navbar";
+import { AddProductForm } from './pages/ProductForm';
+import { AddSellerForm } from './pages/SellerForm';
+import './pages/App.css';
 
 function App() {
   return (
-    <div className = "App">
-      <BrowserRouter>
-          <NavigationFunction></NavigationFunction>
+    <BrowserRouter> 
+      <div className = "App">
+        <header className="App-header"></header>
+          
           <Routes>
-            <Route path="/" element= {<WelcomePage></WelcomePage>}/>
-            <Route path="/sellers"  element={<SellerPage></SellerPage>} />
-            <Route path="/products"  element={<ProductPage></ProductPage>} />
-            <Route path="*" element={<PageNotFoundPage></PageNotFoundPage>} />
+            <Route path="/" element= {<WelcomePage />}/>
+            <Route path="/add-product"  element={<AddProductForm />} />
+            <Route path="/add-seller"  element={<AddSellerForm />} />
+            <Route path="*" element={<PageNotFoundPage />} />
           </Routes>  
-      </BrowserRouter>
       </div>
+    </BrowserRouter>
+      
   );
 }
 export default App;    

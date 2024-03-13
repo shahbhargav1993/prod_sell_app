@@ -5,7 +5,7 @@ export function getAllSellerAPI(){
         mode:"cors"
     });
 }
-export function postSomeSeller(){
+export function postSomeSeller(sellerData: { sellerName: string; sellerID: number }){
     return fetch(apiBaseURL+"seller",{
         method:"POST",
         mode:"cors",

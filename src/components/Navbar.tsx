@@ -6,10 +6,10 @@ export function NavigationFunction() {
     <>
       <ul className="Navbar">Check Out These Links</ul>
       <li>
-        <Link to="Products">Products</Link>
+        <Link to="/products/add">Add Product</Link>
       </li>
       <li>
-        <Link to="Sellers">Sellers</Link>
+        <Link to="/sellers/add">Add Seller</Link>
       </li>
     </>
   );
