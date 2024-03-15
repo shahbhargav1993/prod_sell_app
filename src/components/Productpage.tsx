@@ -1,5 +1,6 @@
 import React from "react";
 import {getAllProductAPI } from "../services/ProductService";
+import { Product } from "../model/Product";
 
 export function ProductPage() {
   function getProducts() {

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { postSomeProduct } from '../services/ProductService';
+import { Link } from 'react-router-dom';
 
 export function AddProductForm() {
     const [productName, setProductName] = useState('');
+    const [productID, setProductID] = useState('');
     const [price, setPrice] = useState('');
     const [sellerName, setSellerName] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
@@ -11,22 +13,36 @@ export function AddProductForm() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-            await postSomeProduct({ productName, price:Number(price), sellerName });
+            await postSomeProduct({ productID: productID,productName, price:Number(price), sellerName });
             setSuccessMessage('Congratulations, you successfully added the product.')
-            // Reset form or show success message
             setProductName('');
             setPrice('');
+            setProductName('');
             setSellerName('');
-        }catch(error){
+            window.location.href = '/products';
+        } catch(error){
+            const e = error as Error;
             console.error('Error adding product:',error)
-            setErrorMessage('Sorry, Please check it again')
+            setErrorMessage(e.message||'Sorry, an error occurred. Please check it again')
         }
 };
 
 
 return (
     <div className="form-container">
+
+        <Link to="/products">Product List</Link>
+        <br />
         <form onSubmit={handleSubmit} className="form-style">
+            <label className="form-label">
+                Enter Product ID:
+                <input
+                    type="text"
+                    value={productID}
+                    onChange={e => setProductID(e.target.value)}
+                    className="form-input"
+                />
+            </label>
             <label className="form-label">
                 Enter Product Name:
                 <input
@@ -57,7 +73,9 @@ return (
                 <button type="submit" className="form-submit">Submit</button>
         </form>
         {successMessage && <div className='success-message'>{successMessage}</div>}
-        {errorMessage && <div className='error-message'>{errorMessage}</div>}
+        {errorMessage && <div className='error-message'>{errorMessage}
+        </div>}
     </div>
 );
-    }
+    
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { postSomeSeller } from '../services/SellerService';
+import { Link } from 'react-router-dom';
 
 export function AddSellerForm() {
     const [sellerID, setSellerID] = useState('');
@@ -10,19 +11,24 @@ export function AddSellerForm() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-        await postSomeSeller({ sellerID: Number(sellerID),sellerName });
+        await postSomeSeller({ sellerID,sellerName });
         setSuccessMessage('Congratulations, you successfully added the seller.')
-        // Reset form or show success message
+        
         setSellerID('');
-        setSellerName('');   
+        setSellerName('');  
+        window.location.href = '/sellers'; 
         }catch(error){
-                console.error('Error adding product:',error)
-                setErrorMessage('Sorry, Please check it again')
+            const e = error as Error;
+            console.error('Error adding product:',error);
+            setErrorMessage(e.message ||'Sorry, an error occurred. Please check it again');
         };
     }
 
 return (
     <div className="form-container">
+        <Link to="/sellers">Seller List </Link>
+        <br />
+
        <form onSubmit={handleSubmit} className="form-style">
             <label className="form-label">
                     Enter Seller ID:

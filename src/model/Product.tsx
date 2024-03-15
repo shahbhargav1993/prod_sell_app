@@ -1,6 +1,13 @@
 export interface Product {
-    ProductId : String,
-    ProductName: String,
+    ProductId : string,
+    ProductName: string,
     Price : number,
-    SellerName: String 
-  }
+    SellerName: string
+}
+
+export interface ProductReturned {
+  productID : string,
+  productName: string,
+  price : number,
+  sellerName: string
+}

@@ -6,6 +6,8 @@ import { PageNotFoundPage } from './components/PageNotfoundPage';
 import { AddProductForm } from './pages/ProductForm';
 import { AddSellerForm } from './pages/SellerForm';
 import './pages/App.css';
+import { ProductList } from './components/ProductList';
+import { SellerList } from './components/SellerList';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/" element= {<WelcomePage />}/>
             <Route path="/add-product"  element={<AddProductForm />} />
             <Route path="/add-seller"  element={<AddSellerForm />} />
+            <Route path="/products"  element={<ProductList />} />
+            <Route path="/sellers"  element={<SellerList />} />
             <Route path="*" element={<PageNotFoundPage />} />
           </Routes>  
       </div>
