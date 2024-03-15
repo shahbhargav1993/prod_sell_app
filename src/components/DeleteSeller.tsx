@@ -14,6 +14,7 @@ export const DeleteSeller: React.FC<DeleteSellerProps> = ({ seller, onDelete }) 
         }
     
         await deleteSellerAPI(seller.sellerID);
+        console.log('Trying to delete')
         onDelete();
     };
 
