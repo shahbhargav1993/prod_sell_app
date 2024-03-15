@@ -20,7 +20,7 @@ export function SellerPage() {
   return (
     <>
       <div>
-        <button onClick={getSellers}>test i can get all sellers</button>
+        <button onClick={getSellers}>Test all sellers</button>
       </div>
     </>
   );
